@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="520.0" prefWidth="875.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="infocenterreceipt.controller.EbillReportController">
+    <children>
+        <Pane prefHeight="521.0" prefWidth="765.0">
+         <children>
+            <TableView fx:id="tblBill" layoutX="10.0" layoutY="71.0" prefHeight="336.0" prefWidth="863.0">
+             <columns>
+                        <TableColumn fx:id="clmnTransactionID" text="Transaction ID" />
+                        <TableColumn fx:id="clmnPaymentDate" text="Date" />
+                        <TableColumn fx:id="clmnConsumerId" text="Consumer Id" />
+                        <TableColumn fx:id="clmnName" text="Name" />
+                        <TableColumn fx:id="clmnBillPaidFor" text="Bill Paid For" />
+                        <TableColumn fx:id="clmnReceived" text="Received" />
+                        <TableColumn fx:id="clmnServiceCharge" text="Service Charge" />
+                       
+                    </columns>
+            </TableView>
+            <DatePicker fx:id="dateFrom" layoutX="10.0" layoutY="23.0" promptText="From" />
+            <DatePicker fx:id="dateTo" layoutX="228.0" layoutY="23.0" promptText="To" />
+            <Button fx:id="showReport" layoutX="440.0" layoutY="23.0" mnemonicParsing="false" onAction="#showDataToTable" text="Show" />
+            <Label layoutX="31.0" layoutY="440.0" text="Total" />
+            <Label layoutX="164.0" layoutY="440.0" prefHeight="17.0" prefWidth="90.0" text="Bill amount :" />
+            <Label layoutX="408.0" layoutY="440.0" text="Service Charges :" />
+            <Label fx:id="lblTotalBill" layoutX="247.0" layoutY="440.0" text="Label" />
+            <Label fx:id="lblTotalService" layoutX="525.0" layoutY="440.0" text="Label" />
+         </children></Pane>
+    </children>
+</VBox>

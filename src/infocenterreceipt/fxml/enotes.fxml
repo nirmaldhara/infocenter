@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox id="AnchorPane" prefHeight="503.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="infocenterreceipt.controller.EnotesController">
+   <children>
+      <Pane prefHeight="503.0" prefWidth="721.0">
+         <children>
+            <TableView layoutX="7.0" layoutY="48.0" prefHeight="386.0" prefWidth="699.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="C1" />
+                <TableColumn prefWidth="75.0" text="C2" />
+              </columns>
+            </TableView>
+            <ChoiceBox layoutX="6.0" layoutY="14.0" prefHeight="27.0" prefWidth="186.0" />
+            <TextField layoutX="202.0" layoutY="14.0" prefHeight="27.0" prefWidth="113.0" />
+            <TextField layoutX="330.0" layoutY="14.0" prefHeight="27.0" prefWidth="113.0" />
+            <DatePicker layoutX="450.0" layoutY="14.0" />
+            <Button layoutX="647.0" layoutY="14.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="59.0" text="go" />
+         </children></Pane>
+   </children>
+</VBox>

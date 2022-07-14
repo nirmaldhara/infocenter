@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="585.0" prefWidth="1176.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="infocenterreceipt.controller.ElectricBillController">
+    <children>
+        <Pane prefHeight="589.0" prefWidth="1231.0">
+            <children>
+                <TextArea fx:id="billDetails" layoutX="10.0" layoutY="28.0" onKeyReleased="#dataPate" prefHeight="421.0" prefWidth="345.0" promptText="Bill Details" />
+                <Label layoutX="367.0" layoutY="30.0" text="Transaction ID:" />
+                <TextField fx:id="transactionID" disable="true" layoutX="466.0" layoutY="25.0" />
+                <Label layoutX="368.0" layoutY="80.0" text="Date:" />
+                <TextField fx:id="paymentDate" disable="true" layoutX="466.0" layoutY="75.0" />
+                <Label layoutX="365.0" layoutY="130.0" text="Payment Gateway:" />
+                <TextField fx:id="paymentGateway" disable="true" layoutX="466.0" layoutY="125.0" />
+                <Label layoutX="365.0" layoutY="180.0" text="Billing Office:" />
+                <TextField fx:id="billingOffice" disable="true" layoutX="466.0" layoutY="175.0" />
+                <Label layoutX="365.0" layoutY="230.0" text="Consumer Id:" />
+                <TextField fx:id="consumerId" disable="true" layoutX="466.0" layoutY="225.0" />
+                <Label layoutX="365.0" layoutY="280.0" text="Name:" />
+                <TextField fx:id="customerName" disable="true" layoutX="466.0" layoutY="275.0" />
+                <Label layoutX="365.0" layoutY="330.0" text="Invoice Number:" />
+                <TextField fx:id="invoiceNumber" disable="true" layoutX="466.0" layoutY="325.0" />
+                <Label layoutX="365.0" layoutY="380.0" text="Bill Paid For:" />
+                <TextField fx:id="billPaidFor" disable="true" layoutX="466.0" layoutY="375.0" />
+                <Label layoutX="365.0" layoutY="430.0" text="Payment Mode :" />
+                <TextField fx:id="paymentMode" disable="true" layoutX="466.0" layoutY="425.0" />
+                <Label layoutX="365.0" layoutY="480.0" text="Received:" />
+                <TextField fx:id="receivedAmount" disable="true" layoutX="466.0" layoutY="475.0" />
+                <Button fx:id="savePrint" layoutX="10.0" layoutY="459.0" mnemonicParsing="false" onAction="#saveAndPrint" prefHeight="32.0" prefWidth="345.0" text="Print">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/baseline_print_black_24dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+
+                <Label layoutX="365.0" layoutY="530.0" text="Service Charge:" />
+                <TextField fx:id="servicecharge" layoutX="466.0" layoutY="525.0" onKeyReleased="#calculateTotalAndDue" text="5" />
+                <Label fx:id="msgServiceCharge" layoutX="605.0" layoutY="530.0" prefHeight="17.0" prefWidth="9.0" text="service Charge" textFill="RED" />
+                <TableView fx:id="tblBill" layoutX="625.0" layoutY="62.0" prefHeight="456.0" prefWidth="544.0">
+                    <columns>
+                        <TableColumn fx:id="clmnTransactionID" text="Transaction ID" />
+                        <TableColumn fx:id="clmnPaymentDate" text="Date" />
+                        <TableColumn fx:id="clmnConsumerId" text="Consumer Id" />
+                        <TableColumn fx:id="clmnName" text="Name" />
+                        <TableColumn fx:id="clmnBillPaidFor" text="Bill Paid For" />
+                        <TableColumn fx:id="clmnReceived" text="Received" />
+                        <TableColumn fx:id="clmnServiceCharge" text="Service Charge" />
+                        <TableColumn fx:id="clmnBillPaidDate" text="Bill Paid Date" />
+                       
+                    </columns>
+                </TableView>
+            <Button fx:id="printBill" layoutX="913.0" layoutY="549.0" mnemonicParsing="false" onAction="#printBill" text="Print">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icons/baseline_print_black_24dp.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <TextField fx:id="txtGivenAmount" layoutX="165.0" layoutY="555.0" onKeyReleased="#calculateReturnAmount" prefHeight="27.0" prefWidth="114.0" promptText="Given" />
+            <Label layoutX="10.0" layoutY="560.0" text="Total Due" />
+            <Label fx:id="lblTotalDue" layoutX="93.0" layoutY="560.0" prefHeight="17.0" prefWidth="94.0" text="0.0" />
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="73.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/inr.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="289.0" layoutY="560.0" prefHeight="17.0" prefWidth="47.0" text="Return" />
+            <Label fx:id="lblReturnAmount" layoutX="365.0" layoutY="560.0" prefHeight="17.0" prefWidth="59.0" text="0.0" />
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="334.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/inr.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="435.0" layoutY="560.0" text="Take more" />
+            <Label fx:id="lblTakeMoreAmount" layoutX="531.0" layoutY="560.0" prefHeight="17.0" prefWidth="59.0" text="0.0" />
+            <ImageView fitHeight="27.0" fitWidth="20.0" layoutX="506.0" layoutY="560.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../icons/inr.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtSearch" layoutX="624.0" layoutY="26.0" onKeyReleased="#searchBillDetails" prefHeight="27.0" prefWidth="262.0" promptText="Search" />
+            <Label fx:id="printstatus" layoutX="990.0" layoutY="560.0" />
+            </children>
+        </Pane>
+    </children>
+</VBox>
